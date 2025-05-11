@@ -21,27 +21,27 @@ namespace TesteTecnicoApi.Repositories.Repository
         public async Task<IEnumerable<FaturaDto>> GetListaFaturasAsync()
         {
             var retorno = await _context.Fatura
-                .Select(x => new FaturaDto
+            .Select(x => new FaturaDto
+            {
+                Id = x.Id,
+                IdContrato = x.IdContrato,
+                Contrato = new ContratoDto
                 {
-                    Id = x.Id,
-                    IdContrato = x.IdContrato,
-                    Contrato = new ContratoDto
-                    {
-                        Id = x.Contrato.Id,
-                        Operadora = x.Contrato.Operadora.NomeOperadora,
-                        Plano = x.Contrato.Plano.Descricao,
-                        NomeFilial = x.Contrato.NomeFilial,
-                        DataInicio = x.Contrato.DataInicio.ToString("dd/MM/yyyy"),
-                        DataVencimento = x.Contrato.DataVencimento.ToString("dd/MM/yyyy"),
-                        ValorMensal = x.Contrato.ValorMensal,
-                        Status = x.Contrato.Status,
-                    },
-                    FaturaStatus = x.FaturaSatatus.Descricao,
-                    DataEmissao = x.DataEmissao.ToString("dd/MM/yyyy"),
-                    DataVencimento = x.DataVencimento.ToString("dd/MM/yyyy"),
-                    ValorCobrado = x.ValorCobrado
-                })
-                .ToListAsync();
+                    Id = x.Contrato.Id,
+                    Operadora = x.Contrato.Operadora.NomeOperadora,
+                    Plano = x.Contrato.Plano.Descricao,
+                    NomeFilial = x.Contrato.NomeFilial,
+                    DataInicio = x.Contrato.DataInicio.ToString("dd/MM/yyyy"),
+                    DataVencimento = x.Contrato.DataVencimento.ToString("dd/MM/yyyy"),
+                    ValorMensal = x.Contrato.ValorMensal,
+                    Status = x.Contrato.Status,
+                },
+                FaturaStatus = x.FaturaStatus.Descricao,
+                DataEmissao = x.DataEmissao.ToString("dd/MM/yyyy"),
+                DataVencimento = x.DataVencimento.ToString("dd/MM/yyyy"),
+                ValorCobrado = x.ValorCobrado
+            })
+            .ToListAsync();
 
             return retorno;
         }
@@ -65,7 +65,7 @@ namespace TesteTecnicoApi.Repositories.Repository
                         ValorMensal = x.Contrato.ValorMensal,
                         Status = x.Contrato.Status,
                     },
-                    FaturaStatus = x.FaturaSatatus.Descricao,
+                    FaturaStatus = x.FaturaStatus.Descricao,
                     DataEmissao = x.DataEmissao.ToString("dd/MM/yyyy"),
                     DataVencimento = x.DataVencimento.ToString("dd/MM/yyyy"),
                     ValorCobrado = x.ValorCobrado
@@ -114,6 +114,6 @@ namespace TesteTecnicoApi.Repositories.Repository
             return await _context.SaveChangesAsync() > 0;
         }
 
-        
+
     }
 }

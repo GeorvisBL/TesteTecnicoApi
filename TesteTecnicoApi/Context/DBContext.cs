@@ -47,7 +47,7 @@ namespace TesteTecnicoApi.Context
                 entity.Property(e => e.ValorCobrado).HasColumnType("decimal(10, 2)");
 
                 entity.HasOne(d => d.Contrato).WithMany(p => p.Faturas).HasForeignKey(d => d.IdContrato).HasConstraintName("FK_Fatura_ContratoId");
-                entity.HasOne(d => d.FaturaSatatus).WithMany(p => p.Faturas).HasForeignKey(d => d.IdFaturaStatus).HasConstraintName("FK_Fatura_FaturaStatusId");
+                entity.HasOne(d => d.FaturaStatus).WithMany(p => p.Faturas).HasForeignKey(d => d.IdFaturaStatus).HasConstraintName("FK_Fatura_FaturaStatusId");
             });
 
             modelBuilder.Entity<FaturaStatus>(entity =>
