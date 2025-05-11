@@ -17,7 +17,7 @@ namespace TesteTecnicoApi.Repositories.Repository
 
         public async Task<IEnumerable<FaturaStatusDto>> GetListaFaturaStatusAsync()
         {
-            var retorno = await _context.FaturaSatatus
+            var retorno = await _context.FaturaStatus
                 .Where(x => x.Ativo)
                 .Select(x => new FaturaStatusDto
                 {

@@ -10,7 +10,7 @@
         public decimal ValorCobrado { get; set; }
 
 
-        public virtual FaturaSatatus FaturaSatatus { get; set; }
+        public virtual FaturaStatus FaturaSatatus { get; set; }
         public virtual Contrato Contrato { get; set; }
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace TesteTecnicoApi.Models
 {
-    public class FaturaSatatus
+    public class FaturaStatus
     {
         public int Id { get; set; }
         public string Descricao { get; set; }

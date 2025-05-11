@@ -17,7 +17,7 @@ namespace TesteTecnicoApi.Context
 
         public virtual DbSet<Contrato> Contrato { get; set; }
         public virtual DbSet<Fatura> Fatura { get; set; }
-        public virtual DbSet<FaturaSatatus> FaturaSatatus { get; set; }
+        public virtual DbSet<FaturaStatus> FaturaStatus { get; set; }
         public virtual DbSet<Operadora> Operadora { get; set; }
         public virtual DbSet<Plano> Plano { get; set; }
         public virtual DbSet<TipoServico> TipoServico { get; set; }
@@ -50,7 +50,7 @@ namespace TesteTecnicoApi.Context
                 entity.HasOne(d => d.FaturaSatatus).WithMany(p => p.Faturas).HasForeignKey(d => d.IdFaturaStatus).HasConstraintName("FK_Fatura_FaturaStatusId");
             });
 
-            modelBuilder.Entity<FaturaSatatus>(entity =>
+            modelBuilder.Entity<FaturaStatus>(entity =>
             {
                 entity.Property(e => e.Descricao).IsRequired().HasMaxLength(25).IsUnicode(false);
                 entity.Property(e => e.Ativo).HasDefaultValueSql("((1))");
