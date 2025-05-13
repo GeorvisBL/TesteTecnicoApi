@@ -14,7 +14,7 @@ namespace TesteTecnicoApi.Dependencies
 
             services.AddDbContext<DBContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("DBVenda"));
+                options.UseSqlServer(configuration.GetConnectionString("DBTesteTecnico"));
             });
 
 
